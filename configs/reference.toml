@@ -1,0 +1,9 @@
+# Provisional listening defaults; not experimental levels.
+fundamental_hz = 220.0
+harmonics = 8
+harmonic_decay = 1.5
+gain = 0.15
+duration_s = 12.0
+sample_rate = 48000
+fade_s = 0.75
+seed = 20261016

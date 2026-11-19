@@ -1,0 +1,10 @@
+# Exploratory timbre refinement at the provisional 220 Hz register.
+fundamental_hz = 220.0
+harmonics = 8
+harmonic_decay = 1.45
+spectral_profile = "exponential"
+gain = 0.15
+duration_s = 12.0
+sample_rate = 48000
+fade_s = 0.75
+seed = 20261016

@@ -1,0 +1,10 @@
+# Odd harmonics only within indices 1..8: 220, 660, 1100, 1540 Hz.
+fundamental_hz = 220.0
+harmonics = 8
+harmonic_decay = 1.5
+spectral_profile = "odd_power_law"
+gain = 0.15
+duration_s = 12.0
+sample_rate = 48000
+fade_s = 0.75
+seed = 20261016

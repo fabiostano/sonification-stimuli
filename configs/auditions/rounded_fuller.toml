@@ -1,0 +1,10 @@
+# Exploratory timbre refinement; more energy in upper harmonics.
+fundamental_hz = 220.0
+harmonics = 8
+harmonic_decay = 0.95
+spectral_profile = "exponential"
+gain = 0.15
+duration_s = 12.0
+sample_rate = 48000
+fade_s = 0.75
+seed = 20261016
