@@ -51,8 +51,8 @@ class StimulusConfig:
                 raise ValueError(f"{name} must be a finite number")
         if not isinstance(self.noise_seed, int) or self.noise_seed < 0:
             raise ValueError("noise_seed must be a nonnegative integer")
-        if not 0 <= self.roughness_depth <= 1 or not 0 < self.slow_am_depth <= 1:
-            raise ValueError("Require fast AM depth in [0,1] and slow AM depth in (0,1]")
+        if not 0 <= self.roughness_depth <= 1 or not 0 <= self.slow_am_depth <= 1:
+            raise ValueError("Require fast and slow AM depths in [0,1]")
         if not 0 < self.pulsation_hz < 20 or not 20 <= self.fast_am_hz <= 150:
             raise ValueError("Require slow AM rate in (0,20) and fast AM rate in [20,150]")
         if not 0 <= self.hnr_db <= 120:

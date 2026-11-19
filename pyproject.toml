@@ -9,8 +9,16 @@ description = "Transparent harmonic-drone prototypes for auditory research"
 requires-python = ">=3.11"
 dependencies = ["numpy>=2.2,<3", "scipy>=1.15,<2", "soundfile>=0.13,<1", "matplotlib>=3.10,<4"]
 
+[project.optional-dependencies]
+analysis = ["mosqito==1.2.1", "pyuff==2.5.1"]
+
 [project.scripts]
 drone = "sonification_stimuli.cli:main"
+endpoint-export = "sonification_stimuli.endpoints:main"
+endpoint-report = "sonification_stimuli.endpoint_report:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+sonification_stimuli = ["templates/*.html"]

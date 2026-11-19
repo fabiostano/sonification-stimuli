@@ -116,4 +116,22 @@ The rounded profile is now the provisional carrier. A 21-stimulus listening set 
 
 ## Web demonstrator
 
-The [Auditory Stimulus Explorer](sites/stimulus-explorer/README.md) now supports live synthesis of all 3,125 five-level combinations, with separate browser workers for synthesis and MoSQiTo psychoacoustic estimates. Three panels show controls, simultaneous signal views, and model/parameter diagnostics. The original 21 Python stimuli remain in the research project. Loudness, roughness and sharpness estimates use an explicit adjustable reference-SPL assumption, not a hardware calibration. Waveforms, spectra, digital diagnostics, and downloadable reports update with the selected sound. See its README for local serving instructions and model-validation details.
+The [Auditory Stimulus Explorer](sites/stimulus-explorer/README.md) now supports live synthesis of all 15,625 combinations of six five-point controls for five characteristics, with separate browser workers for synthesis and MoSQiTo psychoacoustic estimates. Three panels show controls, simultaneous signal views, and model/parameter diagnostics. Pulse frequency and pulse depth are independently adjustable in both tabs. The original 21 Python stimuli and their experimental specification remain in the research project. Loudness, roughness and sharpness estimates use an explicit adjustable reference-SPL assumption, not a hardware calibration. Waveforms, spectra, digital diagnostics, and downloadable reports update with the selected sound. See its README for local serving instructions and model-validation details.
+
+A second Source audio tab accepts a local WAV/MP3 excerpt with a neutral middle reference and exploratory relative effects. Its content-dependent operations are documented separately from the drone's experimental controls.
+
+## Endpoint CSVs saved in this project
+
+Browser CSV downloads remain available. Local generation and unchanged browser-CSV imports now also save measurements to `outputs/endpoint-comparisons/`, with one CSV/provenance JSON per base and an `all-endpoint-comparisons.csv` combining saved records.
+
+```sh
+.venv/bin/python -m sonification_stimuli.endpoints --drone
+.venv/bin/python -m sonification_stimuli.endpoints --source "stimuli/base stimuli/stim_amb_1.mp3"
+.venv/bin/python -m sonification_stimuli.endpoints --import-csv "$HOME/Downloads/base-endpoint-comparison.csv"
+```
+
+The local exporter reuses the app's renderer, endpoint design, CSV formatting and Python models. Native and browser results retain separate backend identities and decoding provenance. Importing a browser CSV preserves its original bytes and scores. See [setup, workflow and interpretation](docs/endpoint-exports.md).
+
+For low-barrier analysis, open `outputs/endpoint-comparisons/analysis.html` directly in a browser. It includes an interactive change matrix, raw-value comparisons across bases, a Matplotlib overview PNG and a tidy summary CSV. Local exports/imports refresh it automatically. Regenerate it independently with `.venv/bin/python -m sonification_stimuli.endpoint_report`. See [the analysis guide](docs/endpoint-analysis.md).
+
+The report also compares bases using a proposed selectivity score: normalized target benefit minus a weighted RMS penalty for unintended changes, including loudness. An adjustable penalty slider, explicit common/full comparison scope, per-control breakdown and PNG/CSV/JSON exports support inspection. See [the formula and assumptions](docs/base-selectivity.md).
